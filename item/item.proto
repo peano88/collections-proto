@@ -24,7 +24,7 @@ service ItemService {
     int64 collection_id = 2;
 
     // ordering integer
-    int32 order = 3;
+    uint32 order = 3;
 
     // the content of an item
     string content = 4;
