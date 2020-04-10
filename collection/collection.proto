@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+import "github.com/peano88/collections-proto/item/item.proto";
+
+// Generated according to https://cloud.google.com/apis/design/standard_methods
+service CollectionService {
+  rpc ListCollections(ListCollectionsRequest) returns (ListCollectionsResponse) {
+  }
+
+  rpc GetCollection(GetCollectionRequest) returns (Collection) {
+  }
+
+  rpc CreateCollection(CreateCollectionRequest) returns (Collection) {
+  }
+
+  rpc UpdateCollection(UpdateCollectionRequest) returns (Collection) {
+  }
+
+  rpc DeleteCollection(DeleteCollectionRequest) returns (google.protobuf.Empty) {
+  }
+}
+
+ message Collection {
+    // collection ID 
+    int64 id = 1;
+
+    // the name of a collection
+    string name = 2;
+
+    repeated Item items = 3;
+
+    // creation timestamp
+    google.protobuf.Timestamp createdAt = 4;
+
+    // last updated timestamp
+    google.protobuf.Timestamp updatedAt = 5;
+// ! This should be defined elsewere
+ }
+
+message ListCollectionsRequest {
+  // The parent resource name, for example, "shelves/shelf1"
+  string parent = 1;
+
+  // The maximum number of items to return.
+  int32 page_size = 2;
+
+  // The next_page_token value returned from a previous List request, if any.
+  string page_token = 3;
+}
+
+message ListCollectionsResponse {
+  // The field name should match the noun "Collection" in the method name.
+  // There will be a maximum number of items returned based on the page_size field in the request.
+  repeated Collection collections = 1;
+
+  // Token to retrieve the next page of results, or empty if there are no more results in the list.
+  string next_page_token = 2;
+}
+
+message GetCollectionRequest {
+  // The field will contain name of the resource requested.
+  int64 id = 1;
+}
+
+message CreateCollectionRequest {
+  // The Collection resource to create.
+  // The field name should match the Noun in the method name.
+  Collection collection = 3;
+}
+
+message UpdateCollectionRequest {
+  // The Collection resource which replaces the resource on the server.
+  Collection collection = 1;
+
+}
+
+message DeleteCollectionRequest {
+  // The resource name of the Collection to be deleted.
+  int64 id = 1;
+}

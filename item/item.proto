@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+// Generated according to https://cloud.google.com/apis/design/standard_methods
+service ItemService {
+
+  rpc CreateItem(CreateItemRequest) returns (Item) {
+ }
+
+  rpc UpdateItem(UpdateItemRequest) returns (Item) {
+  }
+
+  rpc DeleteItem(DeleteItemRequest) returns (google.protobuf.Empty) {
+  }
+}
+
+ message Item {
+    // Item ID 
+    int64 id = 1;
+
+    // collection ID i.e. the parent
+    int64 collection_id = 2;
+
+    // ordering integer
+    int32 order = 3;
+
+    // the content of an item
+    string content = 4;
+
+    // creation timestamp
+    google.protobuf.Timestamp createdAt = 5;
+
+    // last updated timestamp
+    google.protobuf.Timestamp updatedAt = 6;
+    
+ }
+
+message CreateItemRequest {
+  // The parent resource name where the Item is to be created. (the collection)
+  int64 parent = 1;
+
+  // The Item resource to create.
+  // The field name should match the Noun in the method name.
+  Item item = 3;
+}
+
+message UpdateItemRequest {
+  // The Item resource which replaces the resource on the server.
+  Item item = 1;
+
+}
+
+message DeleteItemRequest {
+  // The resource name of the Item to be deleted.
+  int64 id = 1;
+}
