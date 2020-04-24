@@ -3,7 +3,10 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
-import "github.com/peano88/collections-proto/item/item.proto";
+import "item.proto";
+
+package proto.collection;
+option go_package = "github.com/peano88/collections-proto/go/collection";
 
 // Generated according to https://cloud.google.com/apis/design/standard_methods
 service CollectionService {
@@ -30,7 +33,7 @@ service CollectionService {
     // the name of a collection
     string name = 2;
 
-    repeated Item items = 3;
+    repeated proto.item.Item items = 3;
 
     // creation timestamp
     google.protobuf.Timestamp createdAt = 4;

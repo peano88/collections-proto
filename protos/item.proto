@@ -3,6 +3,9 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
+package proto.item;
+option go_package = "github.com/peano88/collections-proto/go/item";
+
 // Generated according to https://cloud.google.com/apis/design/standard_methods
 service ItemService {
 
