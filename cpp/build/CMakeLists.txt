@@ -4,11 +4,15 @@ set (LIBNAME "libCollProto")
 set (HEADER_FILES
     item.pb.h
     collection.pb.h
+    item.grpc.pb.h 
+    collection.grpc.pb.h
 )
 
 set (SOURCE_FILES
     item.pb.cc
     collection.pb.cc
+    item.grpc.pb.cc
+    collection.grpc.pb.cc
 )
 
 add_library(${LIBNAME}
