@@ -34,6 +34,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/timestamp.pb.h>
 #include <google/protobuf/empty.pb.h>
+#include <google/protobuf/field_mask.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_item_2eproto
@@ -537,6 +538,7 @@ class UpdateItemRequest :
 
   enum : int {
     kItemFieldNumber = 1,
+    kFieldMaskFieldNumber = 2,
   };
   // .proto.item.Item item = 1;
   bool has_item() const;
@@ -553,12 +555,28 @@ class UpdateItemRequest :
   ::proto::item::Item* _internal_mutable_item();
   public:
 
+  // .google.protobuf.FieldMask fieldMask = 2;
+  bool has_fieldmask() const;
+  private:
+  bool _internal_has_fieldmask() const;
+  public:
+  void clear_fieldmask();
+  const PROTOBUF_NAMESPACE_ID::FieldMask& fieldmask() const;
+  PROTOBUF_NAMESPACE_ID::FieldMask* release_fieldmask();
+  PROTOBUF_NAMESPACE_ID::FieldMask* mutable_fieldmask();
+  void set_allocated_fieldmask(PROTOBUF_NAMESPACE_ID::FieldMask* fieldmask);
+  private:
+  const PROTOBUF_NAMESPACE_ID::FieldMask& _internal_fieldmask() const;
+  PROTOBUF_NAMESPACE_ID::FieldMask* _internal_mutable_fieldmask();
+  public:
+
   // @@protoc_insertion_point(class_scope:proto.item.UpdateItemRequest)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::proto::item::Item* item_;
+  PROTOBUF_NAMESPACE_ID::FieldMask* fieldmask_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_item_2eproto;
 };
@@ -1077,6 +1095,61 @@ inline void UpdateItemRequest::set_allocated_item(::proto::item::Item* item) {
   }
   item_ = item;
   // @@protoc_insertion_point(field_set_allocated:proto.item.UpdateItemRequest.item)
+}
+
+// .google.protobuf.FieldMask fieldMask = 2;
+inline bool UpdateItemRequest::_internal_has_fieldmask() const {
+  return this != internal_default_instance() && fieldmask_ != nullptr;
+}
+inline bool UpdateItemRequest::has_fieldmask() const {
+  return _internal_has_fieldmask();
+}
+inline const PROTOBUF_NAMESPACE_ID::FieldMask& UpdateItemRequest::_internal_fieldmask() const {
+  const PROTOBUF_NAMESPACE_ID::FieldMask* p = fieldmask_;
+  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::FieldMask*>(
+      &PROTOBUF_NAMESPACE_ID::_FieldMask_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::FieldMask& UpdateItemRequest::fieldmask() const {
+  // @@protoc_insertion_point(field_get:proto.item.UpdateItemRequest.fieldMask)
+  return _internal_fieldmask();
+}
+inline PROTOBUF_NAMESPACE_ID::FieldMask* UpdateItemRequest::release_fieldmask() {
+  // @@protoc_insertion_point(field_release:proto.item.UpdateItemRequest.fieldMask)
+  
+  PROTOBUF_NAMESPACE_ID::FieldMask* temp = fieldmask_;
+  fieldmask_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::FieldMask* UpdateItemRequest::_internal_mutable_fieldmask() {
+  
+  if (fieldmask_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::FieldMask>(GetArenaNoVirtual());
+    fieldmask_ = p;
+  }
+  return fieldmask_;
+}
+inline PROTOBUF_NAMESPACE_ID::FieldMask* UpdateItemRequest::mutable_fieldmask() {
+  // @@protoc_insertion_point(field_mutable:proto.item.UpdateItemRequest.fieldMask)
+  return _internal_mutable_fieldmask();
+}
+inline void UpdateItemRequest::set_allocated_fieldmask(PROTOBUF_NAMESPACE_ID::FieldMask* fieldmask) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(fieldmask_);
+  }
+  if (fieldmask) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(fieldmask)->GetArena();
+    if (message_arena != submessage_arena) {
+      fieldmask = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, fieldmask, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  fieldmask_ = fieldmask;
+  // @@protoc_insertion_point(field_set_allocated:proto.item.UpdateItemRequest.fieldMask)
 }
 
 // -------------------------------------------------------------------
