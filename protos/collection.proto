@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
 
 import "item.proto";
 
@@ -78,6 +79,7 @@ message UpdateCollectionRequest {
   // The Collection resource which replaces the resource on the server.
   Collection collection = 1;
 
+  google.protobuf.FieldMask fieldMask = 2;
 }
 
 message DeleteCollectionRequest {

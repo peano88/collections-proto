@@ -14,6 +14,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ffield_5fmask_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FieldMask_google_2fprotobuf_2ffield_5fmask_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2ftimestamp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Timestamp_google_2fprotobuf_2ftimestamp_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_collection_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Collection_collection_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_item_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Item_item_2eproto;
@@ -148,9 +149,10 @@ static void InitDefaultsscc_info_UpdateCollectionRequest_collection_2eproto() {
   ::proto::collection::UpdateCollectionRequest::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_UpdateCollectionRequest_collection_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UpdateCollectionRequest_collection_2eproto}, {
-      &scc_info_Collection_collection_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_UpdateCollectionRequest_collection_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_UpdateCollectionRequest_collection_2eproto}, {
+      &scc_info_Collection_collection_2eproto.base,
+      &scc_info_FieldMask_google_2fprotobuf_2ffield_5fmask_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_collection_2eproto[7];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_collection_2eproto = nullptr;
@@ -200,6 +202,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_collection_2eproto::offsets[] 
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::proto::collection::UpdateCollectionRequest, collection_),
+  PROTOBUF_FIELD_OFFSET(::proto::collection::UpdateCollectionRequest, fieldmask_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::proto::collection::DeleteCollectionRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -214,7 +217,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 25, -1, sizeof(::proto::collection::GetCollectionRequest)},
   { 31, -1, sizeof(::proto::collection::CreateCollectionRequest)},
   { 37, -1, sizeof(::proto::collection::UpdateCollectionRequest)},
-  { 43, -1, sizeof(::proto::collection::DeleteCollectionRequest)},
+  { 44, -1, sizeof(::proto::collection::DeleteCollectionRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -230,39 +233,42 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_collection_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\020collection.proto\022\020proto.collection\032\037go"
   "ogle/protobuf/timestamp.proto\032\033google/pr"
-  "otobuf/empty.proto\032\nitem.proto\"\245\001\n\nColle"
-  "ction\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\037\n\005items"
-  "\030\003 \003(\0132\020.proto.item.Item\022-\n\tcreatedAt\030\004 "
-  "\001(\0132\032.google.protobuf.Timestamp\022-\n\tupdat"
-  "edAt\030\005 \001(\0132\032.google.protobuf.Timestamp\"O"
-  "\n\026ListCollectionsRequest\022\016\n\006parent\030\001 \001(\t"
-  "\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\""
-  "e\n\027ListCollectionsResponse\0221\n\013collection"
-  "s\030\001 \003(\0132\034.proto.collection.Collection\022\027\n"
-  "\017next_page_token\030\002 \001(\t\"\"\n\024GetCollectionR"
-  "equest\022\n\n\002id\030\001 \001(\003\"K\n\027CreateCollectionRe"
-  "quest\0220\n\ncollection\030\003 \001(\0132\034.proto.collec"
-  "tion.Collection\"K\n\027UpdateCollectionReque"
-  "st\0220\n\ncollection\030\001 \001(\0132\034.proto.collectio"
-  "n.Collection\"%\n\027DeleteCollectionRequest\022"
-  "\n\n\002id\030\001 \001(\0032\355\003\n\021CollectionService\022h\n\017Lis"
-  "tCollections\022(.proto.collection.ListColl"
-  "ectionsRequest\032).proto.collection.ListCo"
-  "llectionsResponse\"\000\022W\n\rGetCollection\022&.p"
-  "roto.collection.GetCollectionRequest\032\034.p"
-  "roto.collection.Collection\"\000\022]\n\020CreateCo"
-  "llection\022).proto.collection.CreateCollec"
-  "tionRequest\032\034.proto.collection.Collectio"
-  "n\"\000\022]\n\020UpdateCollection\022).proto.collecti"
-  "on.UpdateCollectionRequest\032\034.proto.colle"
-  "ction.Collection\"\000\022W\n\020DeleteCollection\022)"
-  ".proto.collection.DeleteCollectionReques"
-  "t\032\026.google.protobuf.Empty\"\000B4Z2github.co"
-  "m/peano88/collections-proto/go/collectio"
-  "nb\006proto3"
+  "otobuf/empty.proto\032 google/protobuf/fiel"
+  "d_mask.proto\032\nitem.proto\"\245\001\n\nCollection\022"
+  "\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\037\n\005items\030\003 \003(\013"
+  "2\020.proto.item.Item\022-\n\tcreatedAt\030\004 \001(\0132\032."
+  "google.protobuf.Timestamp\022-\n\tupdatedAt\030\005"
+  " \001(\0132\032.google.protobuf.Timestamp\"O\n\026List"
+  "CollectionsRequest\022\016\n\006parent\030\001 \001(\t\022\021\n\tpa"
+  "ge_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"e\n\027Lis"
+  "tCollectionsResponse\0221\n\013collections\030\001 \003("
+  "\0132\034.proto.collection.Collection\022\027\n\017next_"
+  "page_token\030\002 \001(\t\"\"\n\024GetCollectionRequest"
+  "\022\n\n\002id\030\001 \001(\003\"K\n\027CreateCollectionRequest\022"
+  "0\n\ncollection\030\003 \001(\0132\034.proto.collection.C"
+  "ollection\"z\n\027UpdateCollectionRequest\0220\n\n"
+  "collection\030\001 \001(\0132\034.proto.collection.Coll"
+  "ection\022-\n\tfieldMask\030\002 \001(\0132\032.google.proto"
+  "buf.FieldMask\"%\n\027DeleteCollectionRequest"
+  "\022\n\n\002id\030\001 \001(\0032\355\003\n\021CollectionService\022h\n\017Li"
+  "stCollections\022(.proto.collection.ListCol"
+  "lectionsRequest\032).proto.collection.ListC"
+  "ollectionsResponse\"\000\022W\n\rGetCollection\022&."
+  "proto.collection.GetCollectionRequest\032\034."
+  "proto.collection.Collection\"\000\022]\n\020CreateC"
+  "ollection\022).proto.collection.CreateColle"
+  "ctionRequest\032\034.proto.collection.Collecti"
+  "on\"\000\022]\n\020UpdateCollection\022).proto.collect"
+  "ion.UpdateCollectionRequest\032\034.proto.coll"
+  "ection.Collection\"\000\022W\n\020DeleteCollection\022"
+  ").proto.collection.DeleteCollectionReque"
+  "st\032\026.google.protobuf.Empty\"\000B4Z2github.c"
+  "om/peano88/collections-proto/go/collecti"
+  "onb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_collection_2eproto_deps[3] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_collection_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
+  &::descriptor_table_google_2fprotobuf_2ffield_5fmask_2eproto,
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
   &::descriptor_table_item_2eproto,
 };
@@ -278,8 +284,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_col
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_collection_2eproto_once;
 static bool descriptor_table_collection_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_collection_2eproto = {
-  &descriptor_table_collection_2eproto_initialized, descriptor_table_protodef_collection_2eproto, "collection.proto", 1249,
-  &descriptor_table_collection_2eproto_once, descriptor_table_collection_2eproto_sccs, descriptor_table_collection_2eproto_deps, 7, 3,
+  &descriptor_table_collection_2eproto_initialized, descriptor_table_protodef_collection_2eproto, "collection.proto", 1330,
+  &descriptor_table_collection_2eproto_once, descriptor_table_collection_2eproto_sccs, descriptor_table_collection_2eproto_deps, 7, 4,
   schemas, file_default_instances, TableStruct_collection_2eproto::offsets,
   file_level_metadata_collection_2eproto, 7, file_level_enum_descriptors_collection_2eproto, file_level_service_descriptors_collection_2eproto,
 };
@@ -1539,15 +1545,28 @@ void CreateCollectionRequest::InternalSwap(CreateCollectionRequest* other) {
 void UpdateCollectionRequest::InitAsDefaultInstance() {
   ::proto::collection::_UpdateCollectionRequest_default_instance_._instance.get_mutable()->collection_ = const_cast< ::proto::collection::Collection*>(
       ::proto::collection::Collection::internal_default_instance());
+  ::proto::collection::_UpdateCollectionRequest_default_instance_._instance.get_mutable()->fieldmask_ = const_cast< PROTOBUF_NAMESPACE_ID::FieldMask*>(
+      PROTOBUF_NAMESPACE_ID::FieldMask::internal_default_instance());
 }
 class UpdateCollectionRequest::_Internal {
  public:
   static const ::proto::collection::Collection& collection(const UpdateCollectionRequest* msg);
+  static const PROTOBUF_NAMESPACE_ID::FieldMask& fieldmask(const UpdateCollectionRequest* msg);
 };
 
 const ::proto::collection::Collection&
 UpdateCollectionRequest::_Internal::collection(const UpdateCollectionRequest* msg) {
   return *msg->collection_;
+}
+const PROTOBUF_NAMESPACE_ID::FieldMask&
+UpdateCollectionRequest::_Internal::fieldmask(const UpdateCollectionRequest* msg) {
+  return *msg->fieldmask_;
+}
+void UpdateCollectionRequest::clear_fieldmask() {
+  if (GetArenaNoVirtual() == nullptr && fieldmask_ != nullptr) {
+    delete fieldmask_;
+  }
+  fieldmask_ = nullptr;
 }
 UpdateCollectionRequest::UpdateCollectionRequest()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
@@ -1563,12 +1582,19 @@ UpdateCollectionRequest::UpdateCollectionRequest(const UpdateCollectionRequest& 
   } else {
     collection_ = nullptr;
   }
+  if (from._internal_has_fieldmask()) {
+    fieldmask_ = new PROTOBUF_NAMESPACE_ID::FieldMask(*from.fieldmask_);
+  } else {
+    fieldmask_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:proto.collection.UpdateCollectionRequest)
 }
 
 void UpdateCollectionRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UpdateCollectionRequest_collection_2eproto.base);
-  collection_ = nullptr;
+  ::memset(&collection_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&fieldmask_) -
+      reinterpret_cast<char*>(&collection_)) + sizeof(fieldmask_));
 }
 
 UpdateCollectionRequest::~UpdateCollectionRequest() {
@@ -1578,6 +1604,7 @@ UpdateCollectionRequest::~UpdateCollectionRequest() {
 
 void UpdateCollectionRequest::SharedDtor() {
   if (this != internal_default_instance()) delete collection_;
+  if (this != internal_default_instance()) delete fieldmask_;
 }
 
 void UpdateCollectionRequest::SetCachedSize(int size) const {
@@ -1599,6 +1626,10 @@ void UpdateCollectionRequest::Clear() {
     delete collection_;
   }
   collection_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && fieldmask_ != nullptr) {
+    delete fieldmask_;
+  }
+  fieldmask_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -1613,6 +1644,13 @@ const char* UpdateCollectionRequest::_InternalParse(const char* ptr, ::PROTOBUF_
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_collection(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .google.protobuf.FieldMask fieldMask = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_fieldmask(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1650,6 +1688,14 @@ failure:
         1, _Internal::collection(this), target, stream);
   }
 
+  // .google.protobuf.FieldMask fieldMask = 2;
+  if (this->has_fieldmask()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::fieldmask(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -1671,6 +1717,13 @@ size_t UpdateCollectionRequest::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *collection_);
+  }
+
+  // .google.protobuf.FieldMask fieldMask = 2;
+  if (this->has_fieldmask()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *fieldmask_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1707,6 +1760,9 @@ void UpdateCollectionRequest::MergeFrom(const UpdateCollectionRequest& from) {
   if (from.has_collection()) {
     _internal_mutable_collection()->::proto::collection::Collection::MergeFrom(from._internal_collection());
   }
+  if (from.has_fieldmask()) {
+    _internal_mutable_fieldmask()->PROTOBUF_NAMESPACE_ID::FieldMask::MergeFrom(from._internal_fieldmask());
+  }
 }
 
 void UpdateCollectionRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1731,6 +1787,7 @@ void UpdateCollectionRequest::InternalSwap(UpdateCollectionRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(collection_, other->collection_);
+  swap(fieldmask_, other->fieldmask_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdateCollectionRequest::GetMetadata() const {
